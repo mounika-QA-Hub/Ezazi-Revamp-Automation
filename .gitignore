@@ -1,0 +1,40 @@
+# ===== Secrets & machine-specific config (NEVER commit) =====
+.env
+.env.*
+!.env.example
+local.properties
+*.keystore
+*.jks
+
+# ===== Build / test output =====
+target/
+test-output/
+allure-results/
+allure-report/
+.allure/
+logs/
+*.log
+screenshots/
+
+# ===== Apps under test (binaries are large and versioned elsewhere) =====
+apps/*.apk
+apps/*.aab
+
+# ===== Maven wrapper binary (downloaded on demand) =====
+.mvn/wrapper/maven-wrapper.jar
+
+# ===== IDEs =====
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+bin/
+.metadata/
+.allure/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db

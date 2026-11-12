@@ -1,0 +1,34 @@
+[
+  {
+    "TestCaseID": "TC_LOGIN_JSON_001",
+    "Description": "Long username (92 chars) without password still asks for password and location",
+    "Username": "nurse_long_username_0123456789_0123456789_0123456789_0123456789_0123456789_0123456789_012345",
+    "Password": "",
+    "ExpectedErrors": ["Please enter your password", "Please select a location"],
+    "Run": "Y"
+  },
+  {
+    "TestCaseID": "TC_LOGIN_JSON_002",
+    "Description": "Username with special characters is accepted as non-empty",
+    "Username": "nurse.o'brien-01@ezazi",
+    "Password": "",
+    "ExpectedErrors": ["Please enter your password", "Please select a location"],
+    "Run": "Y"
+  },
+  {
+    "TestCaseID": "TC_LOGIN_JSON_003",
+    "Description": "Single-character password without username asks for username and location",
+    "Username": "",
+    "Password": "x",
+    "ExpectedErrors": ["Please enter your username", "Please select a location"],
+    "Run": "Y"
+  },
+  {
+    "TestCaseID": "TC_LOGIN_JSON_004",
+    "Description": "Whitespace-only username - expected behaviour to be confirmed with product (trimmed?)",
+    "Username": "   ",
+    "Password": "Sample@123",
+    "ExpectedErrors": ["Please enter your username", "Please select a location"],
+    "Run": "N"
+  }
+]

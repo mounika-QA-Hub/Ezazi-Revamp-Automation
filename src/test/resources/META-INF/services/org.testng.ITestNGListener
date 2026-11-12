@@ -1,0 +1,4 @@
+org.intelehealth.ezazi.automation.listeners.SuiteConfigListener
+org.intelehealth.ezazi.automation.listeners.RetryTransformer
+org.intelehealth.ezazi.automation.listeners.TestExecutionListener
+org.intelehealth.ezazi.automation.listeners.AllureListener

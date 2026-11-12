@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  FRAMEWORK SELF-TEST: no device, no Appium. Validates config, data files and utilities in seconds.
+  Run:   mvnw clean test -Dsuite=framework        (first stage in CI)
+-->
+<suite name="eZAZI Framework Self-test" verbose="1">
+    <test name="Framework">
+        <classes>
+            <class name="org.intelehealth.ezazi.automation.tests.framework.FrameworkSelfTest"/>
+        </classes>
+    </test>
+</suite>

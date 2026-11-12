@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Console: concise. File: full detail, one file per run (target/logs/automation.log).
+  [%t] = thread, %X{test} = current test (set by TestExecutionListener) -> parallel logs stay readable.
+-->
+<Configuration status="WARN">
+    <Properties>
+        <Property name="pattern">%d{HH:mm:ss.SSS} %-5level [%t] %X{test} %c{1} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+            <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        </Console>
+        <File name="File" fileName="target/logs/automation.log" append="false">
+            <PatternLayout pattern="${pattern}"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.intelehealth.ezazi.automation" level="DEBUG"/>
+        <Logger name="io.appium" level="INFO"/>
+        <Logger name="org.openqa.selenium" level="WARN"/>
+        <Logger name="org.apache.poi" level="WARN"/>
+        <Logger name="io.qameta.allure" level="WARN"/>
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>

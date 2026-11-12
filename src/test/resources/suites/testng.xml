@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  ALL device tests that do not need the backend (smoke + regression).
+  Run:   mvnw clean test -Dsuite=testng
+-->
+<suite name="eZAZI Full (offline)" parallel="classes" thread-count="1" verbose="1">
+    <test name="Smoke + Regression - Android">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <include name="regression"/>
+                <exclude name="requires-backend"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="org.intelehealth.ezazi.automation.tests.*"/>
+        </packages>
+    </test>
+</suite>

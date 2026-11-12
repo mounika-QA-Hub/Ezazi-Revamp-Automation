@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  REGRESSION: full functional coverage (nightly / before release).
+  Run:   mvnw clean test -Dsuite=regression
+  Includes group "requires-backend" (needs a reachable server + EZAZI_USERNAME/PASSWORD in .env).
+  For a run without the backend use:  mvnw clean test -Dsuite=testng
+  Suite parameters below apply to every device; leave blank to use config values.
+-->
+<suite name="eZAZI Regression" parallel="classes" thread-count="1" verbose="1">
+    <!-- Default device parameters; a <test> may override them to pin itself to a device -->
+    <parameter name="deviceName" value="Galaxy Tab A11"/>
+    <parameter name="platformVersion" value=""/>
+
+    <test name="Regression - Android">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="org.intelehealth.ezazi.automation.tests.*"/>
+        </packages>
+    </test>
+</suite>

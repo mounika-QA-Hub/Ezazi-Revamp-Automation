@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Product defects (assertion failed)",
+    "matchedStatuses": ["failed"],
+    "traceRegex": ".*java\\.lang\\.AssertionError.*"
+  },
+  {
+    "name": "Element not found / locator changed",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(NoSuchElement|Element not visible|Element not clickable|Element not present|None of the elements became visible).*"
+  },
+  {
+    "name": "Appium session / device problems",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*(Could not create an Appium session|SessionNotCreated|No Appium session|session is either terminated|instrumentation process|adb).*"
+  },
+  {
+    "name": "Configuration or test data problems",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*(ConfigurationException|Column '.*' not found|Sheet '.*' not found|placeholder).*"
+  },
+  {
+    "name": "Backend / network unavailable",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*(could not fetch locations|backend unreachable|Something went wrong).*"
+  },
+  {
+    "name": "Ignored / skipped",
+    "matchedStatuses": ["skipped"]
+  }
+]

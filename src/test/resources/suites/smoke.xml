@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  SMOKE: fast, blocking checks on every build (~2-3 min on one device).
+  Run:   mvnw clean test                     (smoke is the default suite)
+  Threads: set automatically to the number of connected devices (parallel.threads=auto);
+           override with -Dparallel.threads=N. Listeners are auto-registered (META-INF/services).
+-->
+<suite name="eZAZI Smoke" parallel="classes" thread-count="1" verbose="1">
+    <test name="Smoke - Android">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <exclude name="requires-backend"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="org.intelehealth.ezazi.automation.tests.*"/>
+        </packages>
+    </test>
+</suite>

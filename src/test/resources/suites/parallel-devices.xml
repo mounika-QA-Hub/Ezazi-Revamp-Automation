@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!--
+  EXPLICIT MULTI-DEVICE RUN: each <test> is pinned to one device and runs in its own thread.
+  Use when devices differ (phone vs tablet, Android 13 vs 15) and you want results per device.
+  Run:   mvnw clean test -Dsuite=parallel-devices
+
+  Rules for parallel Android sessions:
+    * udid       must be unique per <test>  (adb devices)
+    * systemPort must be unique per <test>  (UiAutomator2 host port)
+  For "same tests spread over N identical devices" you don't need this file:
+  use smoke.xml/regression.xml with device.udids=auto (one thread per connected device).
+-->
+<suite name="eZAZI Smoke - multi device" parallel="tests" thread-count="2" verbose="1">
+    <test name="Tablet - Galaxy Tab A11 (Android 15)">
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="deviceName" value="Galaxy Tab A11"/>
+        <parameter name="platformVersion" value="15"/>
+        <parameter name="systemPort" value="8200"/>
+        <groups><run><include name="smoke"/><exclude name="requires-backend"/></run></groups>
+        <packages><package name="org.intelehealth.ezazi.automation.tests.*"/></packages>
+    </test>
+
+    <test name="Phone - second device">
+        <parameter name="udid" value="emulator-5556"/>
+        <parameter name="deviceName" value="Android Phone"/>
+        <parameter name="platformVersion" value=""/>
+        <parameter name="systemPort" value="8201"/>
+        <groups><run><include name="smoke"/><exclude name="requires-backend"/></run></groups>
+        <packages><package name="org.intelehealth.ezazi.automation.tests.*"/></packages>
+    </test>
+</suite>

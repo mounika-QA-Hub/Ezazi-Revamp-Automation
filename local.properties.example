@@ -1,0 +1,17 @@
+# -----------------------------------------------------------------------------
+#  Optional per-machine overrides. Copy to "local.properties" (git-ignored).
+#  Any key from src/test/resources/config/base.properties can be overridden here.
+# -----------------------------------------------------------------------------
+
+# Pin a specific device instead of auto-detecting
+# device.udids=emulator-5554
+
+# Point to an APK you built locally
+# app.path=D:/builds/ezazi-latest.apk
+
+# Boot the AVD automatically when no device is connected
+# emulator.start=true
+# emulator.avd=MounikaTab
+
+# Faster local loop: keep app state between tests
+# app.reset.strategy=none
